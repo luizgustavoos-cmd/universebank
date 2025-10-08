@@ -1,0 +1,25 @@
+# Arquivos de Sistema e IDEs
+############################
+.vscode/
+.DS_Store
+
+# Ambientes Virtuais
+####################
+# Ignora a pasta do ambiente virtual
+/env/
+
+# Banco de Dados
+################
+# Ignora o arquivo de banco de dados SQLite
+db.sqlite3
+
+# Arquivos de Cache e Python
+###########################
+__pycache__/
+*.pyc
+*.pyo
+*~
+# Logs de testes e arquivos temporários do Django
+/media
+/static
+/staticfiles
