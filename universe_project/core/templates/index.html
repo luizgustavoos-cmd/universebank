@@ -1,0 +1,110 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>UniBank - Clientes</title>
+</head>
+<body>
+    <h1>Lista de Clientes do UniBank</h1>
+    
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Conta</th>
+                <th>Saldo</th>
+                <th>Email</th>
+                <th>Telefone</th>
+            </tr>
+        </thead>
+        <tbody>
+            {# Itera sobre a lista de clientes passada pela View #}
+            {% for cliente in clientes %}
+                <tr>
+                    {# Sintaxe correta para exibir o valor: {{ variavel.campo }} #}
+                    <td>{{ cliente.nome }}</td>
+                    <td>{{ cliente.conta }}</td>
+                    
+                    {# Exibição condicional de cor/classe (exemplo de como aplicar a ideia) #}
+                    <td 
+                        {% if cliente.saldo >= 0 %}
+                            class="saldo-positivo"
+                        {% else %}
+                            class="saldo-negativo"
+                        {% endif %}
+                    >
+                        R$ {{ cliente.saldo }}
+                    </td>
+                    
+                    <td>{{ cliente.email }}</td>
+                    <td>{{ cliente.telefone }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {# Apenas um CSS de demonstração para mostrar a classe funcionando #}
+    <style>
+        .saldo-positivo { color: green; font-weight: bold; }
+        .saldo-negativo { color: red; font-weight: bold; }
+    </style>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniBank - Clientes</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
+          crossorigin="anonymous">
+</head>
+<body>
+    
+    <div class="container mt-5">
+        <h1 class="mb-4">Lista de Clientes do UniBank</h1>
+        
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>Nome</th>
+                    <th>Conta</th>
+                    <th>Saldo</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cliente in clientes %}
+                    <tr>
+                        <td>{{ cliente.nome }}</td>
+                        <td>{{ cliente.conta }}</td>
+                        
+                        {# Cor da célula baseada no saldo #}
+                        <td 
+                            {% if cliente.saldo >= 0 %}
+                                class="text-success" 
+                            {% else %}
+                                class="text-danger" 
+                            {% endif %}
+                        >
+                            R$ {{ cliente.saldo }}
+                        </td>
+                        
+                        <td>{{ cliente.email }}</td>
+                        <td>{{ cliente.telefone }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcgdFwGzWJ8TDEp6Q" 
+            crossorigin="anonymous"></script>
+</body>
+</html>
